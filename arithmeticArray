@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+
+
+int main(){
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    if(n==2){
+            cout<<"arithmetic array with length 2";
+            return 0;
+        }
+    
+    int count=0,maxCount=0;
+    
+    for(int i=1;i<n-1;i++){
+        int d1=a[i+1]-a[i];
+        int d2=a[i]-a[i-1];
+        if(d1==d2){
+            count++;
+        }
+        else{
+            count=0;
+        }
+        if(maxCount<=count){
+            maxCount=count;
+        }
+        
+    }
+    if(maxCount==0){
+        cout<<"not arithmetic array";
+    }
+    else{
+        cout<<"arithmetic array with length="<<maxCount+2;
+    }
+    return 0;
+}
