@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int fun(int a[], int n){
+    int size=1e6+2;
+    int t;
+    int indexArray[size]={0};
+    for(int i=0;i<n;i++){
+        indexArray[a[i]]++;
+    }
+    for(int i=0;i<n;i++){
+        if(indexArray[i]==2){
+             t=i;
+        }
+    }
+    return t;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    cout<<"first repeating element is at index = "<<a[fun(a,n)];
+    return 0;
+}
