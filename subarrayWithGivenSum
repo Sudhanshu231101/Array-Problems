@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n,sum;
+    cin>>n>>sum;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int st=0,en=0,currSum=a[st];
+    while(currSum!=sum){
+        if(currSum<sum){
+            en++;
+            if(en>n-1){
+                break;
+            }
+            currSum=currSum+a[en];
+        }
+        else if(currSum>sum){
+            st++;
+            if(st>n-1){
+                break;
+            }
+            currSum=currSum-a[st];
+        }
+        else{
+            continue;
+        }
+    }
+    cout<<"positions are "<<--st<<"and "<<--en;
+    return 0;
+}
