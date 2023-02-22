@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+
+bool bruteForceApproach(int a[], int n, int k){
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(a[i]+a[j]==k){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool twoPointerApproach(int a[], int n, int k){
+    int low,high;
+    low=0;
+    high=n-1;
+    while((a[low]+a[high]!=k) && (low<high)){
+        if(a[low]+a[high]>k){
+            high--;
+        }
+        else if(a[low]+a[high]<k){
+            low++;
+        }
+        if(a[low]+a[high]==k){
+            return true;
+        }
+    }
+    return false;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int sum;
+    cin>>sum;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int k;
+    cin>>k;
+    if(k==1){
+        cout<<"We are implementing using brute force approach"<<endl;
+        if(bruteForceApproach(a,n,sum)){
+            cout<<"Sum present";
+            return 0;
+        }
+    }
+    else if(k==2){
+        cout<<"We are implementing using two pointer approach"<<endl;
+        if(twoPointerApproach(a,n,sum)){
+            cout<<"Sum present";
+            return 0;
+        }
+    }
+    else{
+        cout<<"Wrong Choice";
+        return 0;
+    }
+    cout<<"Not present";
+    return 0;
+}
