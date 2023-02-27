@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+
+int ntopowp(int n, int p){
+    if(p==0){
+        return 1;
+    }
+    return n*ntopowp(n,p-1);
+}
+
+int main(){
+    int n,p;
+    cin>>n>>p;
+    cout<<n<<" to the power "<<p<<" is "<<ntopowp(n,p);
+    return 0;
+}
