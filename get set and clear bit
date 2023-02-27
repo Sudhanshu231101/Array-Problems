@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+int getBit(int a, int pos){
+    int k=1<<pos;
+    if(a & k){
+        return 1;
+    }
+    return 0;
+    
+}
+
+int setBit(int a, int pos){
+    int k=1<<pos;
+    return (a | k);
+}
+
+int clearBit(int a, int pos){
+    int k=1<<pos;
+    k= ~k;
+    return (k & a);
+}
+
+
+int main(){
+    int n,k;
+    cin>>n>>k;
+    cout<<"Bit at position "<<k<<" is "<<getBit(n,k);
+    return 0;
+}
