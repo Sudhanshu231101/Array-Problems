@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+void sieveOfEratosthenes(int a){
+    
+    int arr[a]={0};
+    for(int i=2;i<a;i++){
+        if(arr[i]==0){
+            for(int j=i*i;j<a;j+=i){
+                arr[j]=1;
+            }
+        }
+    }
+    
+    for(int i=2;i<a;i++){
+        if(arr[i]!=1){
+            cout<<i<<" ";
+        }
+    }
+    
+}
+
+int main(){
+    int n;
+    cin>>n;
+    sieveOfEratosthenes(n);
+    return 0;
+}
