@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+void replace(string s){
+    if(s==""){
+        return;
+    }
+    string ros;
+    if(s[0]=='p' && s[1]=='i'){
+        cout<<"3.14";
+        ros=s.substr(2);
+    }
+    else{
+        cout<<s[0];
+        ros=s.substr(1);
+    }
+    replace(ros);
+}
+
+int main(){
+    string s;
+    getline(cin,s);
+    replace(s);
+    return 0;
+}
