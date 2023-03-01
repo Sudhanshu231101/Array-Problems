@@ -1,0 +1,23 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+string removeDublicates(string s){
+    if(s==""){
+        return "";
+    }
+    string ros = s.substr(1);
+    if(ros[0]!=s[0]){
+        return (s[0]+removeDublicates(ros));
+    }
+    else{
+        return removeDublicates(ros);
+    }
+}
+
+int main(){
+    string s;
+    getline(cin,s);
+    cout<<removeDublicates(s)<<endl;
+    return 0;
+}
