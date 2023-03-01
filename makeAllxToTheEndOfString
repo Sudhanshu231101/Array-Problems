@@ -1,0 +1,25 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+string makeXtoend(string s){
+    if(s==""){
+        return "";
+    }
+    string ros=s.substr(1);
+    if(s[0]=='x'){
+        return (makeXtoend(ros)+s[0]);
+    }
+    else{
+        return (s[0]+makeXtoend(ros));
+    }
+}
+
+
+int main(){
+    string s;
+    getline(cin,s);
+    cout<<makeXtoend(s);
+    return 0;
+}
+
