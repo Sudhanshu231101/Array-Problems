@@ -1,0 +1,19 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+void printReverse(string s){
+    if(s==""){
+        return;
+    }
+    string ros = s.substr(1);
+    printReverse(ros);
+    cout<<s[0];
+}
+
+int main(){
+    string s;
+    getline(cin,s);
+    printReverse(s);
+    return 0;
+}
